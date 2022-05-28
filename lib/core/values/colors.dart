@@ -4,16 +4,21 @@ class AppColors {
   AppColors._();
 
   // Primary color
-  static const Map<int, Color> orange = <int, Color>{
-    50: Color(0xFFFCF2E7),
-    100: Color(0xFFF8DEC3),
-    200: Color(0xFFF3C89C),
-    300: Color(0xFFEEB274),
-    400: Color(0xFFEAA256),
-    500: Color(0xFFE69138),
-    600: Color(0xFFE38932),
-    700: Color(0xFFDF7E2B),
-    800: Color(0xFFDB7424),
-    900: Color(0xFFD56217)
+  static const Map<int, Color> primary = <int, Color>{
+    50: Color(0xFFf0f5f3),
+    100: Color(0xFFd2e0dc),
+    200: Color(0xFFb3cbc5),
+    300: Color(0xFF95b6ad),
+    400: Color(0xFF77a296),
+    500: Color(0xFF5d887c),
+    600: Color(0xFF496a61),
+    700: Color(0xFF344c45),
+    800: Color(0xFF1f2d29),
+    900: Color(0xFF0a0f0e)
+  };
+
+  // Complemetary color
+  static const Map<int, Color> compliment = <int, Color>{
+    300: Color(0xFFB6959E)
   };
 }
