@@ -10,6 +10,7 @@ class ServiceRequestCard extends StatelessWidget {
   final Icon? categoryIcon;
   final Color? color;
   final String serviceDate;
+  final String? numOfOffers;
 
   const ServiceRequestCard(
       {Key? key,
@@ -18,6 +19,7 @@ class ServiceRequestCard extends StatelessWidget {
       this.categoryIcon,
       this.color,
       required this.serviceDate,
+      this.numOfOffers,
       this.onPressed})
       : super(key: key);
 
@@ -32,28 +34,50 @@ class ServiceRequestCard extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(10),
-        child: Container(
+        child: SizedBox(
           width: screenWidth,
           height: 80,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Icons.account_balance_wallet_outlined,
-                    color: AppColors.primary[400],
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.account_balance_wallet_outlined,
+                        color: AppColors.primary[400],
+                      ),
+                      SizedBox(
+                        width: screenWidth * 0.06,
+                      ),
+                      SubText(
+                        text: serviceTitle,
+                        size: 18,
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: screenWidth * 0.06,
-                  ),
-                  SubText(
-                    text: serviceTitle,
-                    size: 18,
-                  ),
+                  DetailText(text: serviceDate)
                 ],
               ),
-              DetailText(text: serviceDate)
+              SizedBox(
+                height: screenHeight * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(),
+                      SizedBox(
+                        width: screenWidth * 0.06,
+                      ),
+                      Container(),
+                    ],
+                  ),
+                  DetailText(text: '(' + numOfOffers! + ' Offers' + ')')
+                ],
+              ),
             ],
           ),
         ),

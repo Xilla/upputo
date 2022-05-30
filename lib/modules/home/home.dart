@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:upputo/core/values/colors.dart';
 import 'package:upputo/core/values/dimensions.dart';
@@ -8,8 +7,11 @@ import 'package:upputo/global_widgets/input/input_field.dart';
 import 'package:upputo/global_widgets/text/detail_text.dart';
 import 'package:upputo/global_widgets/text/main_text.dart';
 import 'package:upputo/global_widgets/text/sub_text.dart';
+import 'package:upputo/modules/categories/categories.dart';
+import 'package:upputo/modules/category_services/category_services.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/global_widgets/cards/category_card.dart';
+import 'package:upputo/modules/service_requests/service_requests.dart';
 
 class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
@@ -78,7 +80,9 @@ class HomeScreen extends GetView<HomeController> {
                     SubText(text: 'Select Category'),
                     GestureDetector(
                       child: DetailText(text: 'See All'),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => const CategoriesScreen());
+                      },
                     )
                   ],
                 ),
@@ -100,7 +104,9 @@ class HomeScreen extends GetView<HomeController> {
                           color: index % 2 != 1
                               ? AppColors.primary[400]!.withOpacity(0.3)
                               : AppColors.compliment[300]!.withOpacity(0.3),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const CategoryServicesScreen());
+                          },
                         ),
                       );
                     },
@@ -115,12 +121,14 @@ class HomeScreen extends GetView<HomeController> {
                     SubText(text: 'Service Requests'),
                     GestureDetector(
                       child: DetailText(text: 'See All'),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => const ServiceRequestsScreen());
+                      },
                     )
                   ],
                 ),
                 SizedBox(
-                  height: screenHeight * 0.02,
+                  height: screenHeight * 0.04,
                 ),
                 SizedBox(
                   height: screenHeight * 0.3,
@@ -135,6 +143,7 @@ class HomeScreen extends GetView<HomeController> {
                         child: ServiceRequestCard(
                           serviceDate: '2 Aug 2022',
                           serviceTitle: 'Plumbing',
+                          numOfOffers: '2',
                           color: AppColors.primary[50],
                         ),
                       );

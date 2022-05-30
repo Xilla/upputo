@@ -26,7 +26,7 @@ class CategoryCard extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(10),
-        child: Container(
+        child: SizedBox(
           width: 160,
           height: 160,
           child: Padding(
