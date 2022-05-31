@@ -8,6 +8,7 @@ import 'package:upputo/global_widgets/text/main_text.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/service_details/controller.dart';
 import 'package:upputo/modules/service_details/local_widgets/filter_button.dart';
+import 'package:upputo/modules/service_provider_details/service_provider_details.dart';
 
 class ServiceDetailsScreen extends GetView<ServiceDetailsController> {
   const ServiceDetailsScreen({Key? key}) : super(key: key);
@@ -118,7 +119,9 @@ class ServiceDetailsScreen extends GetView<ServiceDetailsController> {
                           name: 'John Doe',
                           rating: 2,
                           numOfRatings: 10,
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const ServiceProviderDetailsScreen());
+                          },
                         ),
                       );
                     },

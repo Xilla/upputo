@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:upputo/core/values/colors.dart';
+import 'package:upputo/global_widgets/output/rating_stars.dart';
 import 'package:upputo/global_widgets/text/detail_text.dart';
 import 'package:upputo/global_widgets/text/sub_text.dart';
 
@@ -24,91 +25,65 @@ class ServiceProviderCard extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              SizedBox(
-                height: 80,
-                width: 80,
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                  child: Image.network(
-                    'https://i.ibb.co/mXSJN94/2556.png',
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: screenWidth * 0.06,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SubText(text: name),
-                  SizedBox(
-                    height: screenHeight * 0.01,
-                  ),
-                  DetailText(text: 'Electrcian'),
-                  SizedBox(
-                    height: screenHeight * 0.01,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: 36,
-                        child: ListView(
-                          physics: const BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 14,
-                              color: rating >= 1 ? Colors.yellow : Colors.grey,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 14,
-                              color: rating >= 2 ? Colors.yellow : Colors.grey,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 14,
-                              color: rating >= 3 ? Colors.yellow : Colors.grey,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 14,
-                              color: rating >= 4 ? Colors.yellow : Colors.grey,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 14,
-                              color: rating >= 5 ? Colors.yellow : Colors.grey,
-                            ),
-                          ],
+    return Material(
+      borderRadius: BorderRadius.circular(10),
+      color: AppColors.primary[50],
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+                  color: AppColors.primary[400]!.withOpacity(0.3), width: 2),
+              borderRadius: BorderRadius.circular(10)),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    SizedBox(
+                      height: 80,
+                      width: 80,
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        child: Image.asset(
+                          'assets/icons/avatar.jpg',
                         ),
                       ),
-                      DetailText(text: ' (' + numOfRatings.toString() + ')')
-                    ],
-                  ),
-                ],
-              )
-            ],
+                    ),
+                    SizedBox(
+                      width: screenWidth * 0.06,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SubText(text: name),
+                        SizedBox(
+                          height: screenHeight * 0.01,
+                        ),
+                        DetailText(text: 'Electrcian'),
+                        RatingStars(rating: rating, numOfRatings: numOfRatings)
+                      ],
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    SubText(
+                      text: 'K200/',
+                      size: 18,
+                    ),
+                    DetailText(text: 'hr')
+                  ],
+                )
+              ],
+            ),
           ),
-          Row(
-            children: [
-              SubText(
-                text: 'K200/',
-                size: 18,
-              ),
-              DetailText(text: 'hr')
-            ],
-          )
-        ],
+        ),
       ),
     );
   }

@@ -11,6 +11,7 @@ import 'package:upputo/modules/categories/categories.dart';
 import 'package:upputo/modules/category_services/category_services.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/global_widgets/cards/category_card.dart';
+import 'package:upputo/modules/request_service/request_service.dart';
 import 'package:upputo/modules/service_requests/service_requests.dart';
 
 class HomeScreen extends GetView<HomeController> {
@@ -151,6 +152,23 @@ class HomeScreen extends GetView<HomeController> {
                   ),
                 ),
               ],
+            ),
+          ),
+        ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 20, right: 20),
+          child: SizedBox(
+            height: 70,
+            width: 70,
+            child: FittedBox(
+              child: FloatingActionButton(
+                backgroundColor: AppColors.primary[300],
+                foregroundColor: AppColors.primary[50],
+                child: const Icon(Icons.add),
+                onPressed: () {
+                  Get.to(() => const RequestServiceScreen());
+                },
+              ),
             ),
           ),
         ),

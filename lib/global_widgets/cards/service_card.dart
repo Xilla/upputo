@@ -19,11 +19,14 @@ class ServiceCard extends StatelessWidget {
 
     return Material(
       borderRadius: BorderRadius.circular(10),
-      color: color,
+      color: AppColors.primary[50],
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(10),
-        child: SizedBox(
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(color: color!, width: 2),
+              borderRadius: BorderRadius.circular(10)),
           width: screenWidth,
           height: 60,
           child: Padding(
