@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:upputo/core/values/colors.dart';
 import 'package:upputo/core/values/dimensions.dart';
+import 'package:upputo/global_widgets/input/date_picker_widget.dart';
+import 'package:upputo/global_widgets/input/input_field.dart';
+import 'package:upputo/global_widgets/input/normal_button.dart';
+import 'package:upputo/global_widgets/input/textfield.dart';
+import 'package:upputo/global_widgets/text/detail_text.dart';
 import 'package:upputo/global_widgets/text/main_text.dart';
+import 'package:upputo/global_widgets/text/sub_text.dart';
 import 'package:upputo/modules/request_service/controller.dart';
+import 'package:upputo/modules/service_details/local_widgets/filter_button.dart';
 
 class RequestServiceScreen extends GetView<RequestServiceController> {
   const RequestServiceScreen({Key? key}) : super(key: key);
@@ -44,10 +51,83 @@ class RequestServiceScreen extends GetView<RequestServiceController> {
                 SizedBox(
                   height: screenHeight * 0.03,
                 ),
-                MainText(text: 'Request Service'),
-                SizedBox(
-                  height: screenHeight * 0.03,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MainText(text: 'Request Service'),
+                    FilterButton(
+                      label: 'Fast Service',
+                      icon: const Icon(
+                        Icons.bolt,
+                        color: Colors.yellow,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
                 ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                DetailText(text: 'Create a service request to recieve offers'),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                SubText(text: 'Select Category'),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
+                InputField(
+                  icon: Icons.search_outlined,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                SubText(text: 'Select Service'),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
+                InputField(
+                  icon: Icons.search_outlined,
+                  hintText: '',
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                SubText(text: 'Service Description'),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
+                TextFieldInput(
+                  action: TextInputAction.done,
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                SubText(text: 'Service required on'),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                DatePicker(
+                  DateTime.now(),
+                  width: 60,
+                  height: 80,
+                  controller: controller.controller,
+                  initialSelectedDate: DateTime.now(),
+                  selectionColor: AppColors.primary[100]!.withOpacity(0.6),
+                  selectedTextColor: AppColors.primary[600]!,
+                  onDateChange: (date) {
+                    controller.selectedValue = date;
+                  },
+                ),
+                SizedBox(
+                  height: screenHeight * 0.06,
+                ),
+                NormalButton(
+                  text: 'Create Request',
+                  color: Colors.white,
+                  isClickable: true,
+                )
               ],
             ),
           ),

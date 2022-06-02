@@ -21,4 +21,11 @@ class AppColors {
   static const Map<int, Color> compliment = <int, Color>{
     300: Color(0xFFB6959E)
   };
+
+  // date colors
+  static const Color defaultDateColor = Color(0xFF77a296);
+  static const Color defaultDayColor = Color(0xFF496a61);
+  static const Color defaultMonthColor = Color(0xFF77a296);
+  static const Color defaultSelectionColor = Color(0xFF344c45);
+  static const Color defaultDeactivatedColor = Color(0xFF666666);
 }

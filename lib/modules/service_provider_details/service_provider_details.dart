@@ -6,7 +6,6 @@ import 'package:upputo/global_widgets/cards/review_card.dart';
 import 'package:upputo/global_widgets/output/rating_stars.dart';
 import 'package:upputo/global_widgets/text/detail_text.dart';
 import 'package:upputo/global_widgets/text/sub_text.dart';
-import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/service_details/local_widgets/filter_button.dart';
 import 'package:upputo/modules/service_provider_details/controller.dart';
 import 'package:upputo/modules/service_provider_details/local_widgets/social_card.dart';

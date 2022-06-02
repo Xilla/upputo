@@ -37,6 +37,9 @@ class TextFieldInput extends StatelessWidget {
         minLines: minLines,
         maxLines: null,
         cursorColor: AppColors.primary[500],
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+        ),
         style: TextStyle(
             color: AppColors.primary[700],
             fontSize: Dimensions.defaultFontSize,
