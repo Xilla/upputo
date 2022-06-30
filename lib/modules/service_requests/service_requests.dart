@@ -4,6 +4,7 @@ import 'package:upputo/core/values/colors.dart';
 import 'package:upputo/core/values/dimensions.dart';
 import 'package:upputo/global_widgets/cards/service_request_card.dart';
 import 'package:upputo/global_widgets/text/main_text.dart';
+import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/service_requests/controller.dart';
 
 class ServiceRequestsScreen extends GetView<ServiceRequestsController> {
@@ -63,6 +64,9 @@ class ServiceRequestsScreen extends GetView<ServiceRequestsController> {
                           serviceTitle: 'Plumbing',
                           numOfOffers: '2',
                           color: AppColors.primary[50],
+                          onPressed: () {
+                            Get.to(() => const RequestDetailsScreen());
+                          },
                         ),
                       );
                     },

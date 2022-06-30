@@ -11,6 +11,7 @@ import 'package:upputo/modules/categories/categories.dart';
 import 'package:upputo/modules/category_services/category_services.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/global_widgets/cards/category_card.dart';
+import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/request_service/request_service.dart';
 import 'package:upputo/modules/service_requests/service_requests.dart';
 
@@ -144,8 +145,11 @@ class HomeScreen extends GetView<HomeController> {
                         child: ServiceRequestCard(
                           serviceDate: '2 Aug 2022',
                           serviceTitle: 'Plumbing',
-                          numOfOffers: '2',
+                          numOfOffers: '3',
                           color: AppColors.primary[50],
+                          onPressed: () {
+                            Get.to(() => const RequestDetailsScreen());
+                          },
                         ),
                       );
                     },
