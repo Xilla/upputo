@@ -11,6 +11,7 @@ import 'package:upputo/modules/categories/categories.dart';
 import 'package:upputo/modules/category_services/category_services.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/global_widgets/cards/category_card.dart';
+import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer.dart';
 import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/request_service/request_service.dart';
 import 'package:upputo/modules/service_requests/service_requests.dart';
@@ -27,6 +28,8 @@ class HomeScreen extends GetView<HomeController> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.primary[50],
+        key: controller.scaffoldKey,
+        drawer: const NavigationDrawer(),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Container(
@@ -45,7 +48,9 @@ class HomeScreen extends GetView<HomeController> {
                       icon: const Icon(Icons.menu_rounded),
                       color: AppColors.primary[400],
                       iconSize: 28,
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.openDrawer();
+                      },
                     ),
                     IconButton(
                       alignment: Alignment.topRight,
