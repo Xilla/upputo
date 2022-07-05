@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
 import 'package:upputo/modules/categories/categories.dart';
 import 'package:upputo/modules/category_services/category_services.dart';
+import 'package:upputo/modules/edit_profile/edit_profile.dart';
 import 'package:upputo/modules/home/home.dart';
 import 'package:upputo/modules/make_offer/make_offer.dart';
 import 'package:upputo/modules/offer_details/offer_details.dart';
 import 'package:upputo/modules/offers/offers.dart';
+import 'package:upputo/modules/profile/profile.dart';
 import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/request_service/request_service.dart';
 import 'package:upputo/modules/service_details/service_details.dart';
@@ -31,5 +33,7 @@ class Routes {
     GetPage(name: '/offers', page: () => const OffersScreen()),
     GetPage(name: '/offer-details', page: () => const OfferDetailsScreen()),
     GetPage(name: '/make-offer', page: () => const MakeOfferScreen()),
+    GetPage(name: '/profile', page: () => const ProfileScreen()),
+    GetPage(name: '/edit-profile', page: () => const EditProfileScreen()),
   ];
 }

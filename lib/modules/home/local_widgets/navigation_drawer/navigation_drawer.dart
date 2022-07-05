@@ -5,6 +5,7 @@ import 'package:upputo/core/values/dimensions.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_header.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_menu_item.dart';
+import 'package:upputo/modules/profile/profile.dart';
 
 class NavigationDrawer extends GetView<HomeController> {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -51,9 +52,11 @@ class NavigationDrawer extends GetView<HomeController> {
                   Column(
                     children: [
                       navMenuItem(
-                        text: 'Profile',
-                        icon: Icons.person_outline,
-                      ),
+                          text: 'Profile',
+                          icon: Icons.person_outline,
+                          onClicked: () {
+                            Get.to(() => const ProfileScreen());
+                          }),
                       SizedBox(
                         height: screenHeight * 0.01,
                       ),
@@ -63,6 +66,13 @@ class NavigationDrawer extends GetView<HomeController> {
                           color: AppColors.primary[200]!.withOpacity(0.3),
                           height: 2,
                         ),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      navMenuItem(
+                        text: 'Recent services',
+                        icon: Icons.watch_later_outlined,
                       ),
                       SizedBox(
                         height: screenHeight * 0.01,
