@@ -3,6 +3,7 @@ import 'package:upputo/global_widgets/output/section_widget/section_widget_contr
 import 'package:upputo/modules/categories/controller.dart';
 import 'package:upputo/modules/category_services/controller.dart';
 import 'package:upputo/modules/edit_profile/controller.dart';
+import 'package:upputo/modules/favorites/controller.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/make_offer/controller.dart';
 import 'package:upputo/modules/offer_details/controller.dart';
@@ -14,6 +15,7 @@ import 'package:upputo/modules/request_service/controller.dart';
 import 'package:upputo/modules/service_details/controller.dart';
 import 'package:upputo/modules/service_provider_details/controller.dart';
 import 'package:upputo/modules/service_requests/controller.dart';
+import 'package:upputo/modules/user_clients/controller.dart';
 
 class RootBinding extends Bindings {
   @override
@@ -44,6 +46,9 @@ class RootBinding extends Bindings {
     Get.lazyPut<RecentServicesController>(() => RecentServicesController(),
         fenix: true);
     Get.lazyPut<SectionWidgetController>(() => SectionWidgetController(),
+        fenix: true);
+    Get.lazyPut<FavoritesController>(() => FavoritesController(), fenix: true);
+    Get.lazyPut<UserClientsController>(() => UserClientsController(),
         fenix: true);
   }
 }

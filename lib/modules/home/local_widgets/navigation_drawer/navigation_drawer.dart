@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:upputo/core/values/colors.dart';
-import 'package:upputo/core/values/dimensions.dart';
+import 'package:upputo/modules/favorites/favorites.dart';
 import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_header.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_menu_item.dart';
 import 'package:upputo/modules/profile/profile.dart';
 import 'package:upputo/modules/recent_services/recent_services.dart';
+import 'package:upputo/modules/user_clients/user_clients.dart';
 
 class NavigationDrawer extends GetView<HomeController> {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -16,20 +17,6 @@ class NavigationDrawer extends GetView<HomeController> {
     Get.put(HomeController());
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-
-    // return SafeArea(
-    //   child: Scaffold(
-    //     backgroundColor: AppColors.primary[50],
-    //     body: SingleChildScrollView(
-    //       physics: const BouncingScrollPhysics(),
-    //       child: Container(
-    //         padding: const EdgeInsets.symmetric(
-    //             horizontal: Dimensions.horizontalPadding,
-    //             vertical: Dimensions.verticalPadding),
-    //       ),
-    //     ),
-    //   ),
-    // );
 
     return Drawer(
       child: Material(
@@ -85,6 +72,9 @@ class NavigationDrawer extends GetView<HomeController> {
                       navMenuItem(
                         text: 'Favorites',
                         icon: Icons.favorite_border_outlined,
+                        onClicked: () {
+                          Get.to(() => const FavoritesScreen());
+                        },
                       ),
                       SizedBox(
                         height: screenHeight * 0.01,
@@ -92,6 +82,9 @@ class NavigationDrawer extends GetView<HomeController> {
                       navMenuItem(
                         text: 'Clients',
                         icon: Icons.people_outline,
+                        onClicked: () {
+                          Get.to(() => const UserClientsScreen());
+                        },
                       ),
                       SizedBox(
                         height: screenHeight * 0.01,
