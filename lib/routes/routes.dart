@@ -7,6 +7,7 @@ import 'package:upputo/modules/make_offer/make_offer.dart';
 import 'package:upputo/modules/offer_details/offer_details.dart';
 import 'package:upputo/modules/offers/offers.dart';
 import 'package:upputo/modules/profile/profile.dart';
+import 'package:upputo/modules/recent_services/recent_services.dart';
 import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/request_service/request_service.dart';
 import 'package:upputo/modules/service_details/service_details.dart';
@@ -35,5 +36,6 @@ class Routes {
     GetPage(name: '/make-offer', page: () => const MakeOfferScreen()),
     GetPage(name: '/profile', page: () => const ProfileScreen()),
     GetPage(name: '/edit-profile', page: () => const EditProfileScreen()),
+    GetPage(name: '/recent-services', page: () => const RecentServicesScreen()),
   ];
 }
