@@ -9,6 +9,7 @@ import 'package:upputo/modules/make_offer/controller.dart';
 import 'package:upputo/modules/offer_details/controller.dart';
 import 'package:upputo/modules/offers/controller.dart';
 import 'package:upputo/modules/profile/controller.dart';
+import 'package:upputo/modules/rate_card/controller.dart';
 import 'package:upputo/modules/recent_services/controller.dart';
 import 'package:upputo/modules/request_details/controller.dart';
 import 'package:upputo/modules/request_service/controller.dart';
@@ -50,5 +51,6 @@ class RootBinding extends Bindings {
     Get.lazyPut<FavoritesController>(() => FavoritesController(), fenix: true);
     Get.lazyPut<UserClientsController>(() => UserClientsController(),
         fenix: true);
+    Get.lazyPut<RateCardController>(() => RateCardController(), fenix: true);
   }
 }

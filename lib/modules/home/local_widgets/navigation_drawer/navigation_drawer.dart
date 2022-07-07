@@ -6,6 +6,7 @@ import 'package:upputo/modules/home/controller.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_header.dart';
 import 'package:upputo/modules/home/local_widgets/navigation_drawer/navigation_drawer_menu_item.dart';
 import 'package:upputo/modules/profile/profile.dart';
+import 'package:upputo/modules/rate_card/rate_card.dart';
 import 'package:upputo/modules/recent_services/recent_services.dart';
 import 'package:upputo/modules/user_clients/user_clients.dart';
 
@@ -92,6 +93,9 @@ class NavigationDrawer extends GetView<HomeController> {
                       navMenuItem(
                         text: 'Rate card',
                         icon: Icons.document_scanner_outlined,
+                        onClicked: () {
+                          Get.to(() => const RateCardScreen());
+                        },
                       ),
                       SizedBox(
                         height: screenHeight * 0.01,

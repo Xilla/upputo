@@ -8,6 +8,7 @@ import 'package:upputo/modules/make_offer/make_offer.dart';
 import 'package:upputo/modules/offer_details/offer_details.dart';
 import 'package:upputo/modules/offers/offers.dart';
 import 'package:upputo/modules/profile/profile.dart';
+import 'package:upputo/modules/rate_card/rate_card.dart';
 import 'package:upputo/modules/recent_services/recent_services.dart';
 import 'package:upputo/modules/request_details/request_details.dart';
 import 'package:upputo/modules/request_service/request_service.dart';
@@ -41,5 +42,6 @@ class Routes {
     GetPage(name: '/recent-services', page: () => const RecentServicesScreen()),
     GetPage(name: '/favorites', page: () => const FavoritesScreen()),
     GetPage(name: '/user-cliients', page: () => const UserClientsScreen()),
+    GetPage(name: '/rate-card', page: () => const RateCardScreen()),
   ];
 }
