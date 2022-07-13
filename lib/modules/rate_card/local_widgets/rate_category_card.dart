@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:upputo/core/values/colors.dart';
+import 'package:upputo/core/values/dimensions.dart';
 import 'package:upputo/global_widgets/text/sub_text.dart';
 import 'package:upputo/modules/rate_card/controller.dart';
 import 'package:upputo/modules/rate_card/local_models/rate_card_models.dart';
@@ -24,7 +25,7 @@ class RateCategoryCard extends GetView<RateCardController> {
 
     return Material(
       borderRadius: BorderRadius.circular(10),
-      color: AppColors.primary[50],
+      color: AppColors.cardBgColor,
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         child: Container(
@@ -38,9 +39,17 @@ class RateCategoryCard extends GetView<RateCardController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SubText(
-                  text: category,
-                  size: 22,
+                // SubText(
+                //   text: category,
+                //   size: 22,
+                // ),
+                Text(
+                  category,
+                  style: const TextStyle(
+                    color: AppColors.subColor,
+                    fontSize: Dimensions.categoryTextSize,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(
                   height: screenHeight * 0.01,

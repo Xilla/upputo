@@ -4,16 +4,17 @@ import 'package:upputo/core/values/colors.dart';
 import 'package:upputo/core/values/dimensions.dart';
 import 'package:upputo/global_widgets/input/sub_button.dart';
 import 'package:upputo/global_widgets/text/main_text.dart';
-import 'package:upputo/modules/edit_rate_card/edit_rate_card.dart';
-import 'package:upputo/modules/rate_card/controller.dart';
-import 'package:upputo/modules/rate_card/local_widgets/rate_category_card.dart';
+import 'package:upputo/global_widgets/text/sub_text.dart';
+import 'package:upputo/modules/edit_rate_card/controller.dart';
+import 'package:upputo/modules/edit_rate_card/local_widget/add_category_widget.dart';
+import 'package:upputo/modules/edit_rate_card/local_widget/categories_widget.dart';
 
-class RateCardScreen extends GetView<RateCardController> {
-  const RateCardScreen({Key? key}) : super(key: key);
+class EditRateCardScreen extends GetView<EditRateCardController> {
+  const EditRateCardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RateCardController());
+    Get.put(EditRateCardController());
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
@@ -42,37 +43,37 @@ class RateCardScreen extends GetView<RateCardController> {
                         Get.back();
                       },
                     ),
-                    SubButton(
-                      label: 'Edit',
-                      width: screenWidth * 0.2,
-                      onPressed: () {
-                        Get.to(() => const EditRateCardScreen());
-                      },
-                    ),
                   ],
                 ),
                 SizedBox(
                   height: screenHeight * 0.03,
                 ),
-                MainText(text: 'Rate Card'),
+                MainText(text: 'Edit Rate Card'),
                 SizedBox(
-                  height: screenHeight * 0.03,
+                  height: screenHeight * 0.02,
                 ),
-                ListView.builder(
-                  itemCount: controller.cardRates.length,
-                  scrollDirection: Axis.vertical,
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (_, index) => Container(
-                      margin: const EdgeInsets.only(bottom: 10),
-                      child: RateCategoryCard(
-                        category: controller.cardRates[index].title!,
-                        subCategories: controller.cardRates[index].subCategory!,
-                      )),
+                Obx(
+                  () => ListView.builder(
+                    itemCount: controller.cats.length,
+                    scrollDirection: Axis.vertical,
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (_, index) => Container(
+                        margin: const EdgeInsets.only(bottom: 10),
+                        child: CategoriesWidget(
+                          index: index,
+                        )),
+                  ),
                 ),
                 SizedBox(
-                  height: screenHeight * 0.03,
+                  height: screenHeight * 0.02,
                 ),
+                AddCategoryWidget(
+                  title: 'Add Category',
+                  onPressed: () {
+                    controller.addCategory('Category');
+                  },
+                )
               ],
             ),
           ),

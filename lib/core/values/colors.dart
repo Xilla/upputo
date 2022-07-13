@@ -28,4 +28,10 @@ class AppColors {
   static const Color defaultMonthColor = Color(0xFF77a296);
   static const Color defaultSelectionColor = Color(0xFF344c45);
   static const Color defaultDeactivatedColor = Color(0xFF666666);
+
+  // rate card colors
+  static const Color categoryColor = Colors.white;
+  static const Color subColor = Colors.white;
+  static const Color entryColor = Colors.white;
+  static const Color cardBgColor = Color(0xFF77a296);
 }

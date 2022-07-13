@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:upputo/core/values/colors.dart';
-import 'package:upputo/global_widgets/text/detail_text.dart';
+import 'package:upputo/core/values/dimensions.dart';
 import 'package:upputo/modules/rate_card/local_models/rate_card_models.dart';
 
 class RateSubCategoryCard extends StatelessWidget {
@@ -20,7 +20,7 @@ class RateSubCategoryCard extends StatelessWidget {
 
     return Material(
       borderRadius: BorderRadius.circular(10),
-      color: AppColors.primary[50],
+      color: AppColors.primary[300]!.withOpacity(0.2),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         child: SizedBox(
@@ -33,13 +33,29 @@ class RateSubCategoryCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DetailText(
-                      text: subCategory,
-                      size: 20,
+                    // DetailText(
+                    //   text: subCategory,
+                    //   size: 20,
+                    // ),
+                    Text(
+                      subCategory,
+                      style: const TextStyle(
+                        color: AppColors.subColor,
+                        fontSize: Dimensions.subCategoryTextSize,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    DetailText(
-                      text: 'k4,500',
-                    )
+                    // DetailText(
+                    //   text: 'k4,500',
+                    // )
+                    const Text(
+                      'k4,800',
+                      style: TextStyle(
+                        color: AppColors.subColor,
+                        fontSize: Dimensions.subCategoryTextSize,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -52,7 +68,15 @@ class RateSubCategoryCard extends StatelessWidget {
                   shrinkWrap: true,
                   itemBuilder: (_, index) => Container(
                     margin: const EdgeInsets.only(bottom: 10),
-                    child: DetailText(text: '\u2022 ' + entries[index].entry!),
+                    // child: DetailText(text: '\u2022 ' + entries[index].entry!),
+                    child: Text(
+                      '\u2022 ' + entries[index].entry!,
+                      style: const TextStyle(
+                        color: AppColors.entryColor,
+                        fontSize: Dimensions.entryTextSize,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ],
