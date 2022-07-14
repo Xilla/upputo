@@ -7,8 +7,8 @@ import 'package:upputo/modules/edit_rate_card/controller.dart';
 import 'package:upputo/modules/edit_rate_card/local_widget/sub_category_widget.dart';
 
 class CategoriesWidget extends GetView<EditRateCardController> {
-  int index;
-  CategoriesWidget({Key? key, required this.index}) : super(key: key);
+  int categoriesIndex;
+  CategoriesWidget({Key? key, required this.categoriesIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,26 +30,38 @@ class CategoriesWidget extends GetView<EditRateCardController> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Obx(
+                  () => SubText(
+                    text: controller.emptyRates[categoriesIndex].title!,
+                  ),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Obx(
                   () => ListView.builder(
-                    itemCount: controller.subCats.length,
+                    // itemCount: controller.subCats.length,
+                    itemCount: controller
+                        .emptyRates[categoriesIndex].subCategory!.length,
                     scrollDirection: Axis.vertical,
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (_, index) => Container(
                         margin: const EdgeInsets.only(bottom: 10),
-                        child: SubCategoryWidget(index: index)),
+                        child: SubCategoryWidget(
+                            categoriesIndex: categoriesIndex,
+                            subCategoriesIndex: index)),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SubText(
-                      text: controller.cats[index],
-                    ),
+                    const SizedBox(),
                     SubButton(
-                      label: 'add s',
+                      label: 'Add Sub',
                       width: screenWidth * 0.2,
                       onPressed: () {
                         controller.addSubCategory('sub cat');

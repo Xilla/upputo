@@ -2,12 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:upputo/core/values/colors.dart';
 import 'package:upputo/global_widgets/input/sub_button.dart';
+import 'package:upputo/global_widgets/text/detail_text.dart';
 import 'package:upputo/global_widgets/text/sub_text.dart';
 import 'package:upputo/modules/edit_rate_card/controller.dart';
 
 class EntryWidget extends GetView<EditRateCardController> {
-  int index;
-  EntryWidget({Key? key, required this.index}) : super(key: key);
+  int entriesIndex;
+  int categoriesIndex;
+  int subCategoriesIndex;
+
+  EntryWidget(
+      {Key? key,
+      required this.entriesIndex,
+      required this.categoriesIndex,
+      required this.subCategoriesIndex})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +37,14 @@ class EntryWidget extends GetView<EditRateCardController> {
           width: screenWidth,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: SubText(
-              text: controller.entries[index],
+            child: Obx(
+              () => DetailText(
+                text: controller
+                    .emptyRates[categoriesIndex]
+                    .subCategory![subCategoriesIndex]
+                    .entry![entriesIndex]
+                    .entry!,
+              ),
             ),
           ),
         ),

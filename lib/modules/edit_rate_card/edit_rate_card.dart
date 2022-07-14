@@ -54,14 +54,15 @@ class EditRateCardScreen extends GetView<EditRateCardController> {
                 ),
                 Obx(
                   () => ListView.builder(
-                    itemCount: controller.cats.length,
+                    // itemCount: controller.cats.length,
+                    itemCount: controller.emptyRates.length,
                     scrollDirection: Axis.vertical,
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (_, index) => Container(
                         margin: const EdgeInsets.only(bottom: 10),
                         child: CategoriesWidget(
-                          index: index,
+                          categoriesIndex: index,
                         )),
                   ),
                 ),
